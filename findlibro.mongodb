@@ -1,0 +1,3 @@
+use('biblioteca')
+
+db.inventory.find({precio: 20})

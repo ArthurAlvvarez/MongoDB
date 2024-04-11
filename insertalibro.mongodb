@@ -1,0 +1,26 @@
+use('biblioteca')
+
+db.inventory.insertOne({
+    libro: 'El principe de la niebla',
+    autor: 'Carlos Ruiz Zafon',
+    precio: 20
+})
+use('biblioteca')
+db.inventory.insertOne({
+    libro: 'La Catedral',
+    autor: 'Cesar Mayorque',
+    precio: 20
+})
+use('biblioteca')
+db.inventory.insertMany([
+    {
+    title: "Post Title 2",
+    body: "Body of post",
+    tags: ["news", "events"]
+    },
+    {
+    title: "Post Title 3",
+    body: "Body of postal",
+    tags: ["news", "eventos"]
+    }
+])
