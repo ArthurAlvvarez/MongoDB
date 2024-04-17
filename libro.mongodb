@@ -1,5 +1,5 @@
-db.libros_v1.drop()
-use('libros_v1')
+db.libros.drop()
+use('libros')
 db.libros_v1.insertOne(
   {
     _id: 1,  
@@ -39,5 +39,41 @@ db.libros_v1.insertOne(
     cantidad: 1 
   }
 )
-use('libros_v1')
-db.libros_v1.find({_id: 1})
+use('libros')
+db.libros_v1.find({precio: 45})
+
+//prueba de error de id duplicado
+use('libros')
+db.libros_v1.insertOne(
+  {
+    _id: 5,  
+    titulo: 'Java en 10 minutos',
+    editorial: ['Siglo XXI'],
+    precio: 45,
+    cantidad: 1 
+  }
+)
+db.libros_v1.insertOne(
+  {
+    _id: 5,  
+    titulo: 'Java en 10 minutos',
+    editorial: ['Siglo XXI'],
+    precio: 45,
+    cantidad: 1 
+  }
+)
+
+use('libros')
+db.libros_v1.find({precio: {$gt: 40}})
+
+use('libros')
+db.libros_v1.find({cantidad: {$gte: 50}})
+
+use('libros')
+db.libros_v1.find({cantidad: {$ne: 50}})
+
+use('libros')
+db.libros_v1.find({precio: {$gte: 20, $lte: 45}})
+
+use('libros')
+db.libros_v1.find({editorial: {$in: ['Planeta']}})

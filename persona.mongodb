@@ -1,0 +1,22 @@
+db.personas.drop()
+use('personas')
+db.estudiantes.insertOne({
+    _id: 1,
+    nombre: 'Arthur',
+    apellido: 'Alvarez',
+    edad: 22
+})
+
+db.getMongo().getDB()
+
+use('personas')
+db.estudiantes.drop()
+db.dropDatabase()
+
+use('personas')
+db.estudiantes.find({})
+
+use('personas')
+db.getMongo.getDBs()
+
+db.getMongo().getDB()
