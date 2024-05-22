@@ -19,4 +19,4 @@ db.estudiantes.find({})
 use('personas')
 db.getMongo.getDBs()
 
-db.getMongo().getDB()
+db.getMongo().getDBs()

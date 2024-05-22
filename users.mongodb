@@ -1,0 +1,36 @@
+use('user')
+db.usuarios.drop();
+
+db.usuarios.insertMany([
+  {
+    nombre: "Diego",
+    email: "diego@example.com",
+    edad: 27
+  },
+  {
+    nombre: "Franco",
+    email: "franco@example.com",
+    edad: 20
+  },
+  {
+    nombre: "Juan",
+    email: "juan@example.com",
+    edad: 40
+  }
+])
+use('user')
+db.usuarios.aggregate([{$match: {edad: 40}}])
+use('user')
+db.usuarios.aggregate([{$sort: {edad: -1}}])
+use('user')
+db.usuarios.aggregate([{$project: {edad: 0, nombre: 0}}])
+use('user')
+db.usuarios.aggregate([{$group: {_id: null,promedioEdad: { $avg: "$edad" }}}])
+use('user')
+db.usuarios.insertOne({
+     nombre: "Juan",
+    email: "juano@example.com",
+    edad: 21
+})
+use('user')
+db.usuarios.distinct("email");
